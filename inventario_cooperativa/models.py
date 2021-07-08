@@ -21,6 +21,7 @@ class Usuario(AbstractUser):
     razonSocial = models.CharField(max_length=100, blank=True)
     esSocio = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
+    total = models.IntegerField(default=0)
 
     USERNAME_FIELD = 'rut'
     REQUIRED_FIELDS = ['username', 'first_name', 'last_name', 'email']
