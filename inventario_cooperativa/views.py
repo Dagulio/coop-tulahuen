@@ -77,16 +77,11 @@ def generar_aporte(request):
             tmp = form.cleaned_data['producto']
             if Producto.objects.filter(nombre=tmp).exists():
                 instanciaProducto = Producto.objects.get(nombre=tmp)
-                if Usuario.objects.filter(razonSocial=form.cleaned_data['socioAportador']).exists():
-                    if form.cleaned_data['cantidad'] > 0:
-                        instanciaSocio = Usuario.objects.get(razonSocial=form.cleaned_data["socioAportador"])
-                instanciaSocio.total += form.cleaned_data['cantidad']
                 instanciaProducto.disponibilidad += form.cleaned_data["cantidad"]
                 if instanciaProducto.disponibilidad < 0:
                     return redirect('Agregar')
                 else:
                     instanciaProducto.save()
-                    instanciaSocio.save()
                     form.save()
             else:
                 return redirect('Agregar')
