@@ -1,0 +1,35 @@
+{% extends 'inventario_cooperativa/base.html' %}
+
+{% block content %}
+    <div class="container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>#</td>
+                <td>Nombre del Socio</td>
+                <td>Rut</td>
+                <td>Email</td>
+                <td>Razon social</td>
+                <td>Fecha de registro</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% if socios %}
+            {% for socio in socios %}
+                <tr>
+                    <td>{{ socio.id }}</td>
+                    <td>{{ socio.first_name }} {{ socio.last_name }}</td>
+                    <td>{{ socio.rut }}</td>
+                    <td>{{ socio.email }}</td>
+                    <td>{{ socio.razonSocial }}</td>
+                    <td>{{ socio.fechaRegistro }}</td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <h1>No hay registros para mostrar</h1>
+            {% endif %}
+        </tbody>
+    </table>
+    </div>
+
+{% endblock %}

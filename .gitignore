@@ -1,0 +1,3 @@
+#Db files
+*.sqlite3
+venv/

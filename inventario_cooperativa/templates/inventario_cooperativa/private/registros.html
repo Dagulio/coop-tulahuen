@@ -1,0 +1,47 @@
+{% extends 'inventario_cooperativa/base.html' %}
+
+{% block content %}
+    <div class="container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td># Registro</td>
+                <td>Nombre del producto</td>
+                <td>Cantidad </td>
+                <td>Aportante</td>
+                <td>Cliente</td>
+                <td>Fecha de aporte</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% if registros %}
+            {% for registro in registros %}
+                <tr>
+                    <td>{{ registro.id }}</td>
+                    <td>{{ registro.producto }}</td>
+                    <td>{{ registro.cantidad }} Kg</td>
+
+
+                    {% if registro.socioAportador == "" %}
+                        <td> - </td>
+                    {% else %}
+                        <td>{{ registro.socioAportador }}</td>
+                    {% endif %}
+
+                    {% if registro.cliente == "" %}
+                        <td> - </td>
+                    {% else %}
+                        <td>{{ registro.cliente }}</td>
+                    {% endif %}
+
+                    <td>{{ registro.fechaAporte }}</td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <h1>No hay registros para mostrar</h1>
+            {% endif %}
+        </tbody>
+    </table>
+    </div>
+
+{% endblock %}

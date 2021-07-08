@@ -1,0 +1,1 @@
+web: gunicorn Cooperativa_Django.wsgi --log-file
