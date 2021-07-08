@@ -1,1 +1,1 @@
-web: gunicorn Cooperativa_Django.wsgi --log-file
+web: gunicorn Cooperativa_Django.wsgi --log-file -

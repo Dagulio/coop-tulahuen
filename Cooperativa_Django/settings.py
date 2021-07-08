@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-@#rk4!5p!n+6a&rgsaekh6y)a*l@h%#3108m25!bev&*g%+p$7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['heroku-cooperativa-django.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Custom user model
@@ -82,13 +82,21 @@ WSGI_APPLICATION = 'Cooperativa_Django.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
+import dj_database_url
+from decouple import config
+
+DATABASES = {
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -131,22 +139,31 @@ LOGOUT_URL = reverse_lazy('Logout')
 LOGIN_REDIRECT_URL = reverse_lazy('Lista_Inventario')
 LOGOUT_REDIRECT_URL = reverse_lazy('Home')
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.11/howto/static-files/
-# PROJECT_ROOT = os.path.join(os.path.abspath(__file__))
-PROJECT_ROOT = os.path.dirname(__file__)
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+# Static
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
-
-# Extra lookup directories for collectstatic to find static files
 STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'static'),
-)
+    os.path.join(BASE_DIR, 'static'),
+    )
 
-#  Add configuration for static files storage using whitenoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-import dj_database_url
-prod_db = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(prod_db)
+# # Static files (CSS, JavaScript, Images)
+# # https://docs.djangoproject.com/en/1.11/howto/static-files/
+# # PROJECT_ROOT = os.path.join(os.path.abspath(__file__))
+# PROJECT_ROOT = os.path.dirname(__file__)
+# STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+#
+#
+#
+# # Extra lookup directories for collectstatic to find static files
+# STATICFILES_DIRS = (
+#     os.path.join(PROJECT_ROOT, 'static'),
+# )
+#
+# #  Add configuration for static files storage using whitenoise
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#
+# import dj_database_url
+# prod_db = dj_database_url.config(conn_max_age=500)
+# DATABASES['default'].update(prod_db)
