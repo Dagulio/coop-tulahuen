@@ -15,9 +15,12 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'PT Serif', serif;;
+    font-family: 'PT Serif', serif;
 }
 
+h1 span.site-heading-lower {
+    font-family: 'PT Serif', serif;
+}
 p {
     line-height: 1.75;
 }
@@ -135,7 +138,7 @@ p {
         left: 600px;
         width: 60%;
         margin-top: 3rem;
-        background-color: #17CDD3;
+        background-color: rgba(24, 64, 8, 0.8);
         color: cornsilk;
         position: absolute;
     }
@@ -163,7 +166,7 @@ p {
     position: relative;
     padding: 3rem;
     margin: 0.5rem;
-    background-color: rgba(24, 64, 8);
+    background-color: rgba(24, 64, 8, 0.8);
     color: cornsilk;
 }
 
