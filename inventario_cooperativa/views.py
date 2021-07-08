@@ -3,7 +3,6 @@ from .forms import ProductoForm, AporteForm, UsuarioPForm
 from .models import Producto, Usuario, Registro
 from django.contrib.auth.decorators import login_required
 from .decorators import admin_required
-from django.contrib import messages
 
 
 # Create your views here.
@@ -38,13 +37,11 @@ def registrar_usuario(request):
             tmp = Usuario.objects.get(rut=form.cleaned_data["rut"])
             tmp.username = form.cleaned_data["rut"]
             tmp.save()
-            messages.add_message(request, messages.SUCCESS, 'Usuario agregado correctamente.')
         return redirect('Home')
     else:
         form = UsuarioPForm()
     context = {
         'form': form,
-        'messages': messages,
     }
     return render(request, 'inventario_cooperativa/admin/crearUsuario.html', context)
 
@@ -56,20 +53,17 @@ def agregar_producto(request):
         form = ProductoForm(request.POST)
         if form.is_valid():
             if Producto.objects.filter(nombre=form.cleaned_data["nombre"]).exists():
-                messages.add_message(request, messages.WARNING, 'El producto ya existe.')
                 return redirect('Home')
             else:
                 form.save()
                 tmp1 = Producto.objects.get(nombre=form.cleaned_data["nombre"])
                 tmp = Registro(producto=tmp1, cantidad=form.cleaned_data["disponibilidad"])
                 tmp.save()
-                messages.add_message(request, messages.SUCCESS, 'Producto agregado correctamente.')
             return redirect('Lista_Inventario')
     else:
         form = ProductoForm()
     context = {
         'form': form,
-        'messages': messages,
     }
     return render(request, 'inventario_cooperativa/admin/agregarProducto.html', context)
 
@@ -85,12 +79,10 @@ def generar_aporte(request):
                 instancia = Producto.objects.get(nombre=tmp)
                 instancia.disponibilidad += form.cleaned_data["cantidad"]
                 if instancia.disponibilidad < 0:
-                    messages.add_message(request, messages.ERROR, 'Esta intentando substraer mas de lo disponible.')
                     return redirect('Agregar')
                 else:
                     instancia.save()
                     form.save()
-                    messages.add_message(request, messages.SUCCESS, 'Registro agregado correctamente.')
             else:
                 return redirect('Agregar')
             return redirect('Lista_Registros')
@@ -98,7 +90,6 @@ def generar_aporte(request):
         form = AporteForm()
     context = {
         'form': form,
-        'messages': messages,
     }
     return render(request, 'inventario_cooperativa/admin/generarAporte.html', context)
 
