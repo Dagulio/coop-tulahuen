@@ -48,5 +48,3 @@ J
 Cooperativa_Django/urls.py,1\6\16c893d814bd2803740b473604e6f8e248ff5a7e
 8
 Procfile,b\c\bc3c68e880d1a01632bce79f69dd1387c7ba9c54
-N
-Cooperativa_Django/settings.py,6\e\6e31abc865f935c4691255ca3cc1e79a4c384948
