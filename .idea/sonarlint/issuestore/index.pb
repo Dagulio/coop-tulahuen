@@ -5,8 +5,6 @@ T
 $inventario_cooperativa/decorators.py,7\3\73a05a2ae97ee744e8baed3e100cb3b0fc7470ce
 9
 	manage.py,3\1\3156ad13e4d695cd526bbb7b031016ecba842270
-[
-+inventario_cooperativa/static/css/style.css,6\3\63130c0a7a6b9e8692cf4b23bdc133a37eff1cd5
 {
 Kinventario_cooperativa/templates/inventario_cooperativa/public/privacy.html,0\5\054174ede9239911824987e7d04863e33dd80e19
 ‚
@@ -31,8 +29,6 @@ Ginventario_cooperativa/templates/inventario_cooperativa/user/login.html,7\7\77
 runtime.txt,2\e\2ed4029984f4a6c70a541992efb31f76528bd80d
 @
 requirements.txt,1\9\19359a61ae2446b51b549167b014da2fcf265768
-N
-inventario_cooperativa/urls.py,a\d\ad8361dc6ab561fd09a23e757a2f20792efc8a87
 O
 inventario_cooperativa/forms.py,2\a\2a5e869e3b2a6b3fe7f8c3d257bdfa214bea5606
 :

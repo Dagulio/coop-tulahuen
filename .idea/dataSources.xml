@@ -8,11 +8,11 @@
       <jdbc-url>jdbc:sqlite:C:\Users\56961\PycharmProjects\Cooperativa_Django\db.sqlite3</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="HerokuDB" uuid="75f1ad7a-b0cb-419b-9277-710e60119a95">
+    <data-source source="LOCAL" name="HerokuDB" uuid="9a97fd24-e109-4f36-93f0-d8f5ee7217bd">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://ec2-54-197-100-79.compute-1.amazonaws.com:5432/ddsjob61nhvl3e</jdbc-url>
+      <jdbc-url>jdbc:postgresql://ec2-54-163-97-228.compute-1.amazonaws.com:5432/detkf9kq1n5n6i</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
