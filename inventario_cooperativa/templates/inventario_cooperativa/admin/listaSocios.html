@@ -5,8 +5,7 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <td>#</td>
-                <td>Nombre del Socio</td>
+         <td>Nombre del Socio</td>
                 <td>Rut</td>
                 <td>Email</td>
                 <td>Razon social</td>
@@ -17,8 +16,7 @@
             {% if socios %}
             {% for socio in socios %}
                 <tr>
-                    <td>{{ socio.id }}</td>
-                    <td>{{ socio.first_name }} {{ socio.last_name }}</td>
+        <td>{{ socio.first_name }} {{ socio.last_name }}</td>
                     <td>{{ socio.rut }}</td>
                     <td>{{ socio.email }}</td>
                     <td>{{ socio.razonSocial }}</td>
@@ -33,3 +31,4 @@
     </div>
 
 {% endblock %}
+
